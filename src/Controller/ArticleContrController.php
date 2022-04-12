@@ -27,7 +27,7 @@ class ArticleContrController extends AbstractController
         ]);
     }
     /**
-     * @Route("/article_contr", name="article_cont")
+     * @Route("/article_contr", name="article_cont")z
      */
     public function indexAdmin(): Response
     {
