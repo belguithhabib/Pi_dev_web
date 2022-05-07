@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Example 2</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style.css') }}" media="all" />
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+<header class="clearfix">
+    <div id="logo">
+        <img src="{{ asset ('images/logo.png') }}">
+    </div>
+    <div id="company">
+        <h2 class="name">TabDeal</h2>
+        <div> All Rights Reserved.</div>
+        <div>+216 44 19 44 60</div>
+        <div><a href="mailto:company@example.com">support@tabdeal.tn</a></div>
+    </div>
+    </div>
+</header>
+<main>
+    <div id="details" class="clearfix">
+        <div id="client">
+            <div class="to">TabDeal Boost</div>
+            <h2 class="name">Habib Belguith</h2>
+            <div class="address">Tunis,Gazella</div>
+            <div class="email"><a href="mailto:john@example.com">Habib@tabdeal.tn</a></div>
+        </div>
+
+    </div>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th class="no">id_boost</th>
+            <th class="desc">Nom Article</th>
+            <th class="unit">Type Boost</th>
+            <th class="qty">Prix Boost</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for b in boosts  %}
+        <tr>
+            <td class="no">{{ b.idBoost }}</td>
+            <td class="desc">Article_Nom</td>
+            <td class="unit">{{ b.typeBoost }}</td>
+            <td class="qty">{{ b.prixBoost }}DT</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <div id="thanks">Merci</div>
+    <div id="notices">
+        <div>NOTICE:</div>
+        <div class="notice">Les articles boostées ne sont pas forcement encore disponible</div>
+    </div>
+</main>
+<footer>
+    Ce PDF est crée seulement pour les administrateurs
+</footer>
+{% endblock %}
+</body>
+</html>

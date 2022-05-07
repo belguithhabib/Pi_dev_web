@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ADD Boost{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+<!-- Start Checkout -->
+<section class="shop checkout section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div class="Boost Form">
+                    <h2>Boost</h2>
+                    <p>Faites Attention dans le remplissage du formulaire</p>
+                    <!-- Form -->
+                    <form class="form" method="post" action="#">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="form-group">
+                                <label>Articles<span>*</span></label>
+                                <select Id='articles' name='articles' >
+                                    {% for article in articles %}
+                                    <OPTION name={{article.getTitre}} value='{{ article.getId }}'>{{ article.getTitre }}
+                                        {% endfor %}
+                                </select>
+                            </div>
+                            </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="form-group">
+                                <label>Type Boost<span>*</span></label>
+                                {{ form_widget(form.typeBoost,{'attr':{'class':'form-control p-0 border-0'}}) }}
+                                {{ form_errors(form.typeBoost,{'attr':{'class':'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="form-group">
+                                <label>Prix Boost<span>*</span></label>
+                                {{ form_widget(form.prix_boost,{'attr':{'class':'form-control p-0 border-0'}}) }}
+                                {{ form_errors(form.prix_boost,{'attr':{'class':'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="form-group create-account">
+                                <input id="cbox" type="checkbox">
+                                <label>Confirmer l'ajout du Bosst</label>
+                            </div>
+                        </div>
+                        <div class="single-widget get-button">
+                        {{ form_widget(form) }}
+                        <button class="btn">{{ button_label|default('Ajouter') }}</button>
+                        <!-- Button Widget -->
+                        </div>
+                        <!--/ End Button Widget -->
+
+                    <!--/ End Form -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+
